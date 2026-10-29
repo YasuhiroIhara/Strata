@@ -1,3 +1,56 @@
+<h1 align="center">Strata for DGX Spark</h1>
+
+<p align="center"><sub><b>English</b> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> </sub></p>
+
+> A fork of [Niko1221/Strata](https://github.com/Niko1221/Strata), ported and tuned for the NVIDIA DGX Spark (GB10, Arm64, 128 GB version). All features are implemented in the original project.
+
+## Strata for NVIDIA DGX Spark
+
+- Arm64 support
+- NVFP4 tuning
+- LLM: qwen3.8-flash-next-nvfp4-nvfp4
+- TUI monitoring interface
+
+Ported and adapted for the local environment using Claude Code connected to local LLMs (DeepSeek V4 Flash and Qwen3.8 Flash Next IQ3_S).
+
+### Performance When Used as a Claude Code Backend
+
+<p align="center">
+  <img src="docs/media/Strata-DGX-Spark-CLI2026-10-28.png" width="900" alt="Strata terminal application displaying model activity, speed, memory usage, and recent requests">
+  <br><sub>Monitor model performance and status in an SSH terminal.</sub>
+</p>
+
+### Installation
+
+A 128 GB NVIDIA DGX Spark or compatible system with approximately **85 GB of free disk space**.
+
+```bash
+git clone https://github.com/YasuhiroIhara/Strata.git
+cd Strata
+./setup.sh --yes ---family nvfp4 --model NVFP4-NVIDIA -vision gpu --no-start
+```
+
+### Launch
+
+```bash
+./run-nvfp4-nvfp4.sh
+```
+
+### Monitor
+
+```bash
+.venv/bin/python strata.py monitor --url http://127.0.0.1:8080
+```
+
+### Shutdown
+
+Press `Ctrl+C` in each terminal.
+
+## Original README
+
+The original project's README follows below.
+
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="apps/host/public/brand/strata-lockup-dark.svg">

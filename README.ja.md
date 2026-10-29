@@ -1,36 +1,34 @@
 <h1 align="center">Strata for DGX Spark</h1>
-<h4 align="center">
-[English](README.md) · [简体中文](README.zh-CN.md) · <bold>日本語
-</h4>
+
+<p align="center"><sub><a href="README.md">English</a> · <a href="README.zh-CN.md">简体中文</a> · <b>日本語</b> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.pl.md">Polski</a></sub></p>
 
 >  [Niko1221/Strata](https://github.com/Niko1221/Strata) をNVIDIA DGX Spark（GB10、Arm64、128GB版）用に移植/チューニングしたフォークです。すべての機能は元のプロジェクトで実装されたものです。
 
-## NVIDIA DGX Spark 向けの Strata 移植
+## NVIDIA DGX Spark 向けの Strata 
 
 - Arm64 対応
 - NVFP4 チューン
 - LLM: qwen3.8-flash-next-nvfp4-nvfp4
 - TUI モニター画面
 
-Claude Code に Local LLM (deepseek v4 Flash, qwen3.8 Flash Next iQ3_s)をつないでローカル環境で移植しました。
+Claude Code に Local LLM (deepseek v4 Flash と qwen3.8 Flash Next iQ3_s)をつないでローカル環境で移植しました。
 
 ### Claude Code のバックエンドで使っている時の速度
 
 
 <p align="center">
   <img src="docs/media/Strata-DGX-Spark-CLI2026-10-28.png" width="900" alt="モデルの動作、速度、メモリ、最近のリクエストを表示する Strata ターミナルアプリ">
-  <br><sub>SSH ターミナルで動作中のモデル性能と状態を確認できます。</sub>
+  <br><sub>SSH ターミナルで動作中のモデル性能と状態を確認できます</sub>
 </p>
 
 ### インストール
 
-オリジナルと同様：CUDA Toolkit 13.0（`/usr/local/cuda`）が入った DGX Spark、`g++`、`git`、モデル用に約 **85 GB の空きディスク**
+約 **85 GB の空きディスク**のある 128 GB 版の DGX Spark または互換機
 ```
 git clone https://github.com/YasuhiroIhara/Strata-DGX-Spark.git
 cd Strata-DGX-Spark
-./setup.sh --yes --vision gpu --no-start
+./setup.sh --yes ---family nvfp4 --model NVFP4-NVIDIA -vision gpu --no-start
 ```
-モデルに qwen3.8-flash-next-nvfp4-nvfp4 を設定。
 
 ### 起動
 

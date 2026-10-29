@@ -1,3 +1,57 @@
+
+<h1 align="center">Strata for DGX Spark</h1>
+
+<p align="center"><sub><a href="README.md">English</a> · <b>简体中文</b> · <a href="README.ja.md">日本語</a> </sub></p>
+
+> 这是 [Niko1221/Strata](https://github.com/Niko1221/Strata) 的一个分支，针对 NVIDIA DGX Spark（GB10、Arm64、128 GB 版本）进行了移植和优化。所有功能均由原始项目实现。
+
+## 面向 NVIDIA DGX Spark 的 Strata
+
+- 支持 Arm64
+- 针对 NVFP4 进行优化
+- LLM：qwen3.8-flash-next-nvfp4-nvfp4
+- TUI 监控界面
+
+通过 Claude Code 连接本地 LLM（DeepSeek V4 Flash 和 Qwen3.8 Flash Next IQ3_S），在本地环境中完成了移植和适配。
+
+### 作为 Claude Code 后端使用时的运行速度
+
+<p align="center">
+  <img src="docs/media/Strata-DGX-Spark-CLI2026-10-28.png" width="900" alt="Strata 终端应用，显示模型运行状态、推理速度、内存使用情况和最近的请求">
+  <br><sub>可以在 SSH 终端中查看模型的运行性能和状态。</sub>
+</p>
+
+### 安装
+
+适用于配备 128 GB 内存的 NVIDIA DGX Spark 或兼容设备，需确保有约 **85 GB 可用磁盘空间**。
+
+```bash
+git clone https://github.com/YasuhiroIhara/Strata-DGX-Spark.git
+cd Strata-DGX-Spark
+./setup.sh --yes ---family nvfp4 --model NVFP4-NVIDIA -vision gpu --no-start
+```
+
+### 启动
+
+```bash
+./run-nvfp4-nvfp4.sh
+```
+
+### 监控
+
+```bash
+.venv/bin/python strata.py monitor --url http://127.0.0.1:8080
+```
+
+### 退出
+
+在各个终端中分别按 `Ctrl+C`。
+
+## 以下为原始 README
+
+下面是原始项目的 README 内容。
+
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="apps/host/public/brand/strata-lockup-dark.svg">
