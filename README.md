@@ -11,7 +11,7 @@
 - LLM: qwen3.8-flash-next-nvfp4-nvfp4
 - TUI monitoring interface
 
-Ported and adapted for the local environment using Claude Code connected to local LLMs (DeepSeek V4 Flash and Qwen3.8 Flash Next IQ3_S).
+Ported and adapted for DGX Spark using Claude Code connected to local LLMs (DeepSeek V4 Flash and Qwen3.8 Flash Next IQ3_S).
 
 ### Performance When Used as a Claude Code Backend
 
@@ -22,7 +22,9 @@ Ported and adapted for the local environment using Claude Code connected to loca
 
 ### Installation
 
-A 128 GB NVIDIA DGX Spark or compatible system with approximately **85 GB of free disk space**.
+A 128 GB NVIDIA DGX Spark or compatible system with approximately 85 GB of free disk space is required.
+
+Note: On the first run, the setup process may take some time because it needs to compile the engine and download the LLM model from Hugging Face.
 
 ```bash
 git clone https://github.com/YasuhiroIhara/Strata.git
